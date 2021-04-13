@@ -14,6 +14,7 @@ function Main() {
         <div className="panel">
             // add new word
             <AddWord onAdd={handleAdd} />
+
             
             //Flash card
             
@@ -24,6 +25,13 @@ function Main() {
                     item={item}
                 />
             ))}
+            {
+                items.map(item => (
+                    <WordList 
+                    key = {item.key}
+                    item = {item}
+                    />
+                ))}
         </div>
     );
 }
