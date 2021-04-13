@@ -7,7 +7,8 @@ function AddWord( { onAdd } ) {
     const handleChangeWord = e => setWord(e.target.value);
     const handleChangeMean = e => setMean(e.target.value);
     
-    const onSubmit = () => {
+    const onSubmit = (event) => {
+        event.preventDefault();
         if(!word || !mean) return ;
         setWord('');
         setMean('');
