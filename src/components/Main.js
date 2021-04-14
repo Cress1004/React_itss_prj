@@ -15,9 +15,9 @@ function Main() {
     return (
         <div className="panel">
             <Header />
-            {/*<AddWord onAdd={handleAdd} />*/}
             
             <CardContainer />
+            <AddWord onAdd={handleAdd} />
         </div>
     );
 }
