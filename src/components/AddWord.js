@@ -13,7 +13,7 @@ function AddWord( { onAdd } ) {
         if(!word || !mean) return ;
         setWord('');
         setMean('');
-        onAdd({word, mean});
+        onAdd({word, mean, done: false, key: getKey()});
         alert("Save word success");
     }
     

@@ -28,8 +28,7 @@ function Main() {
             key: getKey(),
         }]);
     const handleAdd = word => {
-        setWords([...words, { word, done: false, key: getKey() }]);
-        console.log(words);
+        setWords([...words, { word }]);
     };
     
     return (
