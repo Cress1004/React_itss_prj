@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
+import { getKey } from "../lib/util";
 
 function AddWord( { onAdd } ) {
     const [word, setWord] = React.useState('');
     const [mean, setMean] = React.useState('');
-    // const [done, setDone] = React.useState(false);
     
     const handleChangeWord = e => setWord(e.target.value);
     const handleChangeMean = e => setMean(e.target.value);
@@ -13,7 +13,8 @@ function AddWord( { onAdd } ) {
         if(!word || !mean) return ;
         setWord('');
         setMean('');
-        onAdd({word, mean})
+        onAdd({word, mean});
+        alert("Save word success");
     }
     
     return (
