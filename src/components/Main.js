@@ -1,45 +1,36 @@
 import React, { useState } from 'react';
+import Header from './Header';
+import CardContainer from './CardContainer';
 import AddWord from './AddWord';
 import WordList from './WordList';
 
 function Main() {
-    //Mỗi một từ mới thì có 3 props: word, mean, done((default: flase)
-    const [items, putItem] = React.useState('');
-
+    const [items, putItem] = React.useState([]);
+    
     const handleAdd = word => {
         putItem([...items, { word, done: false }]);
     };
-
+    
     return (
-        <div>
-            <div className="panel">
-                // add new word
-            <AddWord onAdd={handleAdd} />
-
-
-            //Flash card
-
-            // List những từ chưa thuộc
+        <div className="panel">
+            <Header />
+            
+            <CardContainer />
+       
             {items.map(item => (
                 <AddWord
                     key={item.key}
                     item={item}
+                    onAdd={handleAdd}
                 />
             ))}
-
-            </div>
-            <div>
-                    {items.map(item => (
-                        <WordList 
-                        key = {item.key}
-                        item = {item}
-                        />
-                    ))
-                    }
-            </div>
-
+            {items.map(item => (
+                 <WordList 
+                     key = {item.key}
+                     item = {item}
+                 />
+            ))}
         </div>
-
     );
 }
 
