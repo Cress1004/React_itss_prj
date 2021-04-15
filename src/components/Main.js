@@ -13,10 +13,9 @@ function Main() {
     
     return (
         <div className="panel">
-            <Header />
             
             <CardContainer />
-       
+        
             {items.map(item => (
                 <AddWord
                     key={item.key}
@@ -25,10 +24,10 @@ function Main() {
                 />
             ))}
             {items.map(item => (
-                 <WordList 
-                     key = {item.key}
-                     item = {item}
-                 />
+                <WordList 
+                    key = {item.key}
+                    item = {item}
+                />
             ))}
         </div>
     );
