@@ -1,39 +1,32 @@
 import React from "react";
 
-class Card extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            showMean: false,
-        };
-    }
+function Card() {
+    const [showMean, setShowMean] = React.useState(false);
+    
+    const content = showMean
+        ? this.props.backContent
+        : this.props.frontContent;
+    const iconClass = showMean ? "reply" : "share";
+    const cardClass = showMean ? "back" : "";
+    const contentClass = showMean ? "back" : "front";
 
-    render() {
-        const content = this.state.showMean
-            ? this.props.backContent
-            : this.props.frontContent;
-        const iconClass = this.state.showMean ? "reply" : "share";
-        const cardClass = this.state.showMean ? "back" : "";
-        const contentClass = this.state.showMean ? "back" : "front";
-
-        return (
+    return (
+        <div
+            className={`card ${cardClass}`}
+            onClick={() => this.setState({ showMean: !showMean })}
+        >
+            <span className="card__counter">{this.props.cardNumber + 1}</span>
             <div
-                className={`card ${cardClass}`}
-                onClick={() => this.setState({ showMean: !this.state.showMean })}
+                className="card__flip-card"
+                onClick={() => {
+                    setShowMean(!showMean);
+                }}
             >
-                <span className="card__counter">{this.props.cardNumber + 1}</span>
-                <div
-                    className="card__flip-card"
-                    onClick={() => {
-                        this.setState({ showMean: !this.state.showMean });
-                    }}
-                >
-                    <span className={`fa fa-${iconClass}`} />
-                </div>
-                <div className={`card__content--${contentClass}`}>{content}</div>
+                <span className={`fa fa-${iconClass}`} />
             </div>
-        );
-    }
+            <div className={`card__content--${contentClass}`}>{content}</div>
+        </div>
+    );
 }
 
 export default Card;
