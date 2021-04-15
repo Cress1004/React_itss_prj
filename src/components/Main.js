@@ -96,8 +96,6 @@ class Main extends React.Component {
                     <Card
                         frontContent={card.get("word")}
                         backContent={card.get("meaning")}
-                        showNextCard={this.boundShowNextCard}
-                        showPrevCard={this.boundShowPrevCard}
                         cardNumber={this.state.cardNumber}
                     />
                 );
